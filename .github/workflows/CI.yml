@@ -8,6 +8,7 @@ jobs:
       - name: Run tests
         run : |
           pip install pytest
+          pip install -r requirements.txt
           pytest
       - name: build docker image
         run :
@@ -15,10 +16,7 @@ jobs:
       - name: run docker image
         run :
           docker run lgrar/ynov_lyon:test
-      - name: docker login
-        env: 
-          USERNAME: ${{secrets.DOCKER_USERNAME}}
-          PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      - name: docker login and push
         run : |
-          docker login -u $USERNAME -p $PASSWORD
+          docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
           docker push lgrar/ynov_lyon:test

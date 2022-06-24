@@ -23,6 +23,9 @@ def check_if_special_char(password):
             return True
     return False
 
+def random():
+    print("coucou")
+
 def check_if_password_valid(password):
     if count_char(password) <= 10:
         return False
