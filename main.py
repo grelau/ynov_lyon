@@ -33,3 +33,5 @@ def check_if_password_valid(password):
     if check_if_special_char(password) == False:
         return False
     return True
+
+print(check_if_password_valid("Bonjourrrrr!"))
