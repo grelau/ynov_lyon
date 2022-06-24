@@ -20,4 +20,4 @@ jobs:
           USERNAME: ${{secrets.DOCKER_USERNAME}}
           PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run :
-          doker login -u $USERNAME -p $PASSWORD
+          docker login -u $USERNAME -p $PASSWORD
