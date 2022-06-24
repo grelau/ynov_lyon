@@ -11,13 +11,14 @@ jobs:
           pytest
       - name: build docker image
         run :
-          docker build -t ynov_lyon .
+          docker build -t lgrar/ynov_lyon:test .
       - name: run docker image
         run :
-          docker run ynov_lyon
+          docker run lgrar/ynov_lyon:test
       - name: docker login
         env: 
           USERNAME: ${{secrets.DOCKER_USERNAME}}
           PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        run :
+        run : |
           docker login -u $USERNAME -p $PASSWORD
+          docker push lgrar/ynov_lyon:test
